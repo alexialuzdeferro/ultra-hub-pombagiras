@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌹 Almas de Pombagira 🔥</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --fire-red: #ff0a0a;
+            --blood-red: #8b0000;
+            --dark-crimson: #4a0000;
+            --gold: #ffd700;
+            --hot-pink: #ff1493;
+            --magenta: #ff00ff;
+            --ember-orange: #ff4500;
+            --deep-purple: #4b0082;
+            --black: #0a0000;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--black);
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Background de fogo infernal */
+        .infernal-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: 
+                radial-gradient(ellipse at 50% 100%, rgba(255, 69, 0, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 80%, rgba(139, 0, 0, 0.6) 0%, transparent 40%),
+                radial-gradient(ellipse at 80% 80%, rgba(139, 0, 0, 0.6) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 0%, rgba(75, 0, 130, 0.3) 0%, transparent 50%),
+                linear-gradient(180deg, #0a0000 0%, #1a0000 50%, #0a0000 100%);
+            animation: pulseBackground 8s ease-in-out infinite;
+        }
+
+        @keyframes pulseBackground {
+            0%, 100% { filter: brightness(1) saturate(1); }
+            50% { filter: brightness(1.2) saturate(1.3); }
+        }
+
+        /* Camada de fumaça vermelha */
+        .blood-smoke {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            opacity: 0.3;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(255, 0, 0, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(255, 69, 0, 0.3) 0%, transparent 50%);
+            animation: smokeRise 15s ease-in-out infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes smokeRise {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.2; }
+            25% { transform: translate(-30px, -50px) scale(1.1) rotate(2deg); opacity: 0.35; }
+            50% { transform: translate(-20px, -100px) scale(1.2) rotate(0deg); opacity: 0.25; }
+            75% { transform: translate(30px, -50px) scale(1.1) rotate(-2deg); opacity: 0.35; }
+            100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.2; }
+        }
+
+        /* Ondas de calor */
+        .heat-waves {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(255, 69, 0, 0.15), transparent);
+            animation: heatDistort 3s ease-in-out infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes heatDistort {
+            0%, 100% { transform: scaleY(1); opacity: 0.5; }
+            50% { transform: scaleY(1.05); opacity: 0.7; }
+        }
+
+        /* Partículas de fogo/faíscas */
+        .ember {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #ffd700, #ff4500, transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 3;
+            animation: emberFloat 8s infinite;
+            box-shadow: 0 0 6px #ff4500, 0 0 12px #ffd700;
+        }
+
+        @keyframes emberFloat {
+            0% { 
+                transform: translateY(100vh) translateX(0) scale(1); 
+                opacity: 0; 
+            }
+            10% { opacity: 1; }
+            50% { 
+                transform: translateY(50vh) translateX(50px) scale(0.8); 
+                opacity: 0.8; 
+            }
+            90% { opacity: 0.6; }
+            100% { 
+                transform: translateY(-50px) translateX(-30px) scale(0.3); 
+                opacity: 0; 
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            padding: 80px 20px 100px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        /* Header épico */
+        .header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff0040, #ffd700, #ff0040, transparent);
+            animation: lineGlow 3s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff0040, #ffd700, #ff0040, transparent);
+            animation: lineGlow 3s ease-in-out infinite reverse;
+        }
+
+        @keyframes lineGlow {
+            0%, 100% { opacity: 0.5; filter: blur(0px); }
+            50% { opacity: 1; filter: blur(2px); }
+        }
+
+        .crown-icon {
+            font-size: 80px;
+            display: block;
+            margin-bottom: 20px;
+            animation: crownFloat 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 30px rgba(255, 0, 68, 0.8)) drop-shadow(0 0 60px rgba(255, 215, 0, 0.6));
+        }
+
+        @keyframes crownFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.1); }
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3.5rem, 10vw, 8rem);
+            font-weight: 900;
+            margin: 20px 0;
+            background: linear-gradient(135deg, #ff0040 0%, #ffd700 25%, #ff6b9d 50%, #ffd700 75%, #ff0040 100%);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fireGradient 4s ease infinite;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            filter: drop-shadow(0 0 40px rgba(255, 0, 68, 0.8)) drop-shadow(0 0 80px rgba(139, 0, 0, 0.6));
+            position: relative;
+        }
+
+        .main-title::after {
+            content: 'Almas de Pombagira';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #ff0040, #ffd700, #ff0040);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fireGradient 4s ease infinite;
+            filter: blur(15px);
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        @keyframes fireGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .subtitle {
+            font-family: 'Uncial Antiqua', serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 400;
+            color: #ffb3d9;
+            letter-spacing: 8px;
+            margin: 20px 0;
+            text-shadow: 0 0 30px rgba(255, 0, 68, 0.6), 0 0 60px rgba(255, 0, 68, 0.3);
+            animation: subtitleBreath 4s ease-in-out infinite;
+        }
+
+        @keyframes subtitleBreath {
+            0%, 100% { opacity: 0.8; letter-spacing: 8px; }
+            50% { opacity: 1; letter-spacing: 12px; }
+        }
+
+        .tagline {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .tagline-item {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            padding: 10px 25px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 30px;
+            background: rgba(139, 0, 0, 0.3);
+            animation: tagPulse 2s ease-in-out infinite;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tagline-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.8), 0 0 50px rgba(255, 0, 68, 0.5);
+            background: rgba(139, 0, 0, 0.5);
+        }
+
+        .tagline-item:nth-child(2) { animation-delay: 0.3s; }
+        .tagline-item:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes tagPulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 0 25px rgba(255, 215, 0, 0.6), 0 0 50px rgba(255, 0, 68, 0.3); }
+        }
+
+        .call-to-action {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 700;
+            color: #fff;
+            margin-top: 35px;
+            animation: ctaFire 2s ease-in-out infinite;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        @keyframes ctaFire {
+            0%, 100% { 
+                text-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500, 0 0 30px #ff0000, 0 0 40px #ff0000;
+                color: #ffd700;
+            }
+            50% { 
+                text-shadow: 0 0 20px #ffd700, 0 0 40px #ff4500, 0 0 60px #ff0000, 0 0 80px #ff0000;
+                color: #fff;
+            }
+        }
+
+        /* Divisores de seção dramáticos */
+        .section-divider {
+            position: relative;
+            width: 100%;
+            margin: 80px 0 40px;
+            padding: 25px 40px;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.5), rgba(75, 0, 130, 0.3), rgba(139, 0, 0, 0.5));
+            border-left: 5px solid;
+            border-image: linear-gradient(180deg, #ff0040, #ffd700, #ff0040) 1;
+            border-radius: 0 20px 20px 0;
+            backdrop-filter: blur(20px);
+            box-shadow: 
+                0 10px 40px rgba(255, 0, 68, 0.3),
+                inset 0 0 50px rgba(255, 0, 0, 0.1),
+                0 0 100px rgba(139, 0, 0, 0.4);
+            overflow: hidden;
+        }
+
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            animation: sectionShimmer 4s infinite;
+        }
+
+        @keyframes sectionShimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 900;
+            color: #ffd700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 0, 68, 0.4);
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-icon {
+            font-size: 2rem;
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px currentColor); }
+            50% { transform: scale(1.2); filter: drop-shadow(0 0 15px currentColor); }
+        }
+
+        /* Grid de cards */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Cards de fogo */
+        .link-card {
+            position: relative;
+            background: linear-gradient(145deg, rgba(74, 0, 0, 0.8), rgba(20, 0, 0, 0.95));
+            border: 2px solid transparent;
+            border-radius: 25px;
+            padding: 35px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+            box-shadow: 
+                0 15px 50px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 100, 100, 0.2),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 25px;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(255, 0, 68, 0.5), rgba(255, 215, 0, 0.3), rgba(139, 0, 0, 0.5));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.5;
+            transition: opacity 0.4s ease;
+        }
+
+        .card-fire-effect {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(to top, rgba(255, 69, 0, 0.4), rgba(255, 0, 68, 0.2), transparent);
+            transition: height 0.5s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .link-card:hover .card-fire-effect {
+            height: 100%;
+        }
+
+        .link-card:hover::before {
+            opacity: 1;
+            background: linear-gradient(135deg, #ff0040, #ffd700, #ff0040);
+        }
+
+        .link-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 
+                0 25px 80px rgba(255, 0, 68, 0.5),
+                0 0 100px rgba(255, 69, 0, 0.4),
+                0 0 150px rgba(139, 0, 0, 0.3),
+                inset 0 0 50px rgba(255, 0, 68, 0.15);
+        }
+
+        /* ÍCONES DOS CARDS - TAMANHO PARA DESKTOP */
+        .link-icon {
+            font-size: 4rem; /* Tamanho grande para desktop */
+            margin-bottom: 20px;
+            display: block;
+            filter: drop-shadow(0 0 15px rgba(255, 0, 68, 0.8));
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 1;
+        }
+
+        .link-card:hover .link-icon {
+            transform: scale(1.3) rotate(10deg);
+            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 1)) drop-shadow(0 0 50px rgba(255, 0, 68, 0.8));
+            animation: iconFire 0.5s ease-in-out;
+        }
+
+        @keyframes iconFire {
+            0%, 100% { transform: scale(1.3) rotate(10deg); }
+            25% { transform: scale(1.4) rotate(15deg); }
+            50% { transform: scale(1.25) rotate(5deg); }
+            75% { transform: scale(1.35) rotate(12deg); }
+        }
+
+        .link-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffd700;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 15px rgba(255, 0, 68, 0.6);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .link-card:hover .link-title {
+            color: #fff;
+            text-shadow: 0 0 20px #ffd700, 0 0 40px #ff0040;
+        }
+
+        .link-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: rgba(255, 200, 200, 0.9);
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .link-card:hover .link-description {
+            color: #fff;
+        }
+
+        /* Indicador de ação */
+        .card-arrow {
+            position: absolute;
+            bottom: 20px;
+            right: 25px;
+            font-size: 1.5rem;
+            color: rgba(255, 215, 0, 0.5);
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+
+        .link-card:hover .card-arrow {
+            color: #ffd700;
+            transform: translateX(10px);
+            text-shadow: 0 0 20px #ffd700;
+        }
+
+        /* Badge de novo */
+        .new-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff0040, #ffd700);
+            color: #000;
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: badgePulse 1.5s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); transform: scale(1); }
+            50% { box-shadow: 0 0 25px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 0, 68, 0.5); transform: scale(1.05); }
+        }
+
+        /* Footer místico */
+        .footer {
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff0040, #ffd700, #ff0040, transparent);
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: footerPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes footerPulse {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 0, 68, 0.5)); }
+            50% { filter: drop-shadow(0 0 30px rgba(255, 0, 68, 0.8)); }
+        }
+
+        .footer-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: #ffd700;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(255, 0, 68, 0.5);
+        }
+
+        .footer-subtitle {
+            font-size: 1rem;
+            color: rgba(255, 179, 217, 0.7);
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        /* Animação de entrada */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .link-card {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .link-card:nth-child(1) { animation-delay: 0.1s; }
+        .link-card:nth-child(2) { animation-delay: 0.15s; }
+        .link-card:nth-child(3) { animation-delay: 0.2s; }
+        .link-card:nth-child(4) { animation-delay: 0.25s; }
+        .link-card:nth-child(5) { animation-delay: 0.3s; }
+        .link-card:nth-child(6) { animation-delay: 0.35s; }
+        .link-card:nth-child(7) { animation-delay: 0.4s; }
+        .link-card:nth-child(8) { animation-delay: 0.45s; }
+        .link-card:nth-child(9) { animation-delay: 0.5s; }
+
+        /* ========== RESPONSIVIDADE MELHORADA ========== */
+        
+        /* Tablets e dispositivos menores */
+        @media (max-width: 1024px) {
+            .links-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 25px;
+            }
+            
+            .link-card {
+                padding: 30px;
+            }
+            
+            .link-icon {
+                font-size: 3.5rem; /* Tamanho médio para tablets */
+            }
+            
+            .link-title {
+                font-size: 1.4rem;
+            }
+            
+            .link-description {
+                font-size: 1rem;
+            }
+        }
+
+        /* Dispositivos móveis */
+        @media (max-width: 768px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .section-divider {
+                padding: 20px 25px;
+                margin: 60px 0 30px;
+            }
+
+            .container {
+                padding: 50px 15px 80px;
+            }
+
+            .tagline {
+                gap: 15px;
+            }
+
+            .tagline-item {
+                font-size: 0.9rem;
+                padding: 8px 18px;
+            }
+
+            .link-card {
+                padding: 25px;
+            }
+
+            /* ÍCONES MENORES PARA MOBILE */
+            .link-icon {
+                font-size: 2.8rem; /* Tamanho menor para mobile */
+            }
+            
+            .link-title {
+                font-size: 1.3rem;
+            }
+            
+            .link-description {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+            
+            .crown-icon {
+                font-size: 60px;
+            }
+            
+            .section-icon {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Dispositivos móveis pequenos */
+        @media (max-width: 480px) {
+            .main-title {
+                letter-spacing: 4px;
+            }
+
+            .subtitle {
+                letter-spacing: 4px;
+            }
+
+            .section-title {
+                letter-spacing: 2px;
+            }
+            
+            .link-card {
+                padding: 20px;
+            }
+            
+            /* ÍCONES AINDA MENORES PARA MOBILE PEQUENO */
+            .link-icon {
+                font-size: 2.5rem; /* Tamanho ainda menor para mobile pequeno */
+                margin-bottom: 15px;
+            }
+            
+            .link-title {
+                font-size: 1.2rem;
+            }
+            
+            .link-description {
+                font-size: 0.9rem;
+            }
+            
+            .card-arrow {
+                font-size: 1.3rem;
+            }
+            
+            .tagline {
+                gap: 10px;
+            }
+            
+            .tagline-item {
+                font-size: 0.8rem;
+                padding: 6px 15px;
+            }
+        }
+
+        /* Dispositivos muito pequenos */
+        @media (max-width: 360px) {
+            .link-icon {
+                font-size: 2.2rem; /* Tamanho mínimo para ícones */
+            }
+            
+            .link-title {
+                font-size: 1.1rem;
+            }
+            
+            .tagline-item {
+                font-size: 0.75rem;
+                padding: 5px 12px;
+            }
+        }
+
+        /* Dispositivos grandes (desktop) */
+        @media (min-width: 1200px) {
+            .link-icon {
+                font-size: 4.5rem; /* Tamanho maior para telas grandes */
+            }
+            
+            .links-grid {
+                grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            }
+        }
+
+        /* Dispositivos muito grandes */
+        @media (min-width: 1600px) {
+            .link-icon {
+                font-size: 5rem; /* Tamanho máximo para telas muito grandes */
+            }
+        }
+
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #8b0000, #ff0040, #8b0000);
+            border-radius: 6px;
+            border: 2px solid #0a0000;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #ff0040, #ffd700, #ff0040);
+        }
+
+        /* Seleção de texto */
+        ::selection {
+            background: rgba(255, 0, 68, 0.5);
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <!-- Canvas de fundo infernal -->
+    <div class="infernal-canvas"></div>
+    <div class="blood-smoke"></div>
+    <div class="heat-waves"></div>
+
+    <div class="container">
+        <header class="header">
+            <span class="crown-icon">👑</span>
+            <h1 class="main-title">Almas de Pombagira</h1>
+            <p class="subtitle">✦ Rainhas do Fogo Sagrado ✦</p>
+            <div class="tagline">
+                <a href="https://bio.site/AlmasdePombagira" class="tagline-item">🔥 1 - Bio-Site</a>
+                <a href="https://linktr.ee/alexiarosadefogo" class="tagline-item">🌹 2 - Linktree</a>
+                <a href="https://pombagiras.my.canva.site/" class="tagline-item">⚡ 3 - Canvas</a>
+            </div>
+            <p class="call-to-action">⚡ Entre nos Reinos do Fogo e da Rosa ⚡</p>
+        </header>
+
+        <main>
+            <!-- Portais Sagrados -->
+            <div class="section-divider">
+                <h2 class="section-title">
+                    <span class="section-icon">🌟</span>
+                    Portais Sagrados
+                </h2>
+            </div>
+            <div class="links-grid">
+                <a href="https://alexialuzdeferro.github.io/Hub-Pombagiras/" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="link-icon">🌟</span>
+                    <div class="link-title">Hub Central</div>
+                    <div class="link-description">Portal completo com todos os caminhos e conhecimentos reunidos</div>
+                    <span class="card-arrow">→</span>
+                </a>
+                <a href="https://alexialuzdeferro.github.io/grimorio-das-pombagiras/" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="new-badge">✨ Novo</span>
+                    <span class="link-icon">📜</span>
+                    <div class="link-title">Grimório das Pombagiras</div>
+                    <div class="link-description">O livro sagrado com todos os segredos, rituais e ensinamentos ocultos das rainhas</div>
+                    <span class="card-arrow">→</span>
+                </a>
+                <a href="https://alexialuzdeferro.github.io/almasdepombagira/" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="link-icon">💫</span>
+                    <div class="link-title">Almas Sagradas</div>
+                    <div class="link-description">Conheça as histórias e a essência das entidades femininas de poder</div>
+                    <span class="card-arrow">→</span>
+                </a>
+                <a href="https://alexialuzdeferro.github.io/Pombagiras/" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="link-icon">🌹</span>
+                    <div class="link-title">Essência das Rainhas</div>
+                    <div class="link-description">Explore as características e particularidades de cada linha</div>
+                    <span class="card-arrow">→</span>
+                </a>
+                <a href="https://pombagiras.my.canva.site/" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="link-icon">📖</span>
+                    <div class="link-title">Santuário Visual</div>
+                    <div class="link-description">Galeria sagrada com imagens e arte devocional</div>
+                    <span class="card-arrow">→</span>
+                </a>
+                <a href="https://linktr.ee/alexiarosadefogo" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="link-icon">🌳</span>
+                    <div class="link-title">Árvore de Links</div>
+                    <div class="link-description">Todos os caminhos reunidos em um só lugar</div>
+                    <span class="card-arrow">→</span>
+                </a>
+                <a href="https://bio.site/AlmasdePombagira" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="link-icon">👤</span>
+                    <div class="link-title">Bio Completa</div>
+                    <div class="link-description">Perfil completo com toda a jornada e trabalhos desenvolvidos</div>
+                    <span class="card-arrow">→</span>
+                </a>
+            </div>
+
+            <!-- Ferramentas Místicas -->
+            <div class="section-divider">
+                <h2 class="section-title">
+                    <span class="section-icon">🔮</span>
+                    Ferramentas Místicas
+                </h2>
+            </div>
+            <div class="links-grid">
+                <a href="https://alexialuzdeferro.github.io/oraculo-pombagiras/" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="link-icon">🔮</span>
+                    <div class="link-title">Oráculo Sagrado</div>
+                    <div class="link-description">Consulte as cartas e receba mensagens das entidades</div>
+                    <span class="card-arrow">→</span>
+                </a>
+                <a href="https://alexialuzdeferro.github.io/Cartas-Rosa-e-Fogo/" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="link-icon">🃏</span>
+                    <div class="link-title">Cartas Rosa e Fogo</div>
+                    <div class="link-description">Baralho exclusivo com a energia do amor e da transformação</div>
+                    <span class="card-arrow">→</span>
+                </a>
+                <a href="https://alexialuzdeferro.github.io/Quizz--Pombagiras-/" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="link-icon">❓</span>
+                    <div class="link-title">Quiz Místico</div>
+                    <div class="link-description">Descubra qual Pombagira ressoa com sua energia e caminho</div>
+                    <span class="card-arrow">→</span>
+                </a>
+                <a href="https://alexialuzdeferro.github.io/Velas-Virtuais/" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="link-icon">🕯️</span>
+                    <div class="link-title">Velas Virtuais</div>
+                    <div class="link-description">Acenda sua vela virtual e envie suas intenções ao plano espiritual</div>
+                    <span class="card-arrow">→</span>
+                </a>
+                <a href="https://alexialuzdeferro.github.io/PONTOS-CANTADOS/" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="link-icon">🎵</span>
+                    <div class="link-title">Pontos Cantados</div>
+                    <div class="link-description">Mergulhe nos pontos sagrados e cânticos que invocam a força das Pombagiras</div>
+                    <span class="card-arrow">→</span>
+                </a>
+            </div>
+
+            <!-- Redes Sociais -->
+            <div class="section-divider">
+                <h2 class="section-title">
+                    <span class="section-icon">📱</span>
+                    Redes Sociais
+                </h2>
+            </div>
+            <div class="links-grid">
+                <a href="https://www.instagram.com/almasdepombagira/?igsh=Y3VocnA2aDQxYjlw" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="link-icon">📷</span>
+                    <div class="link-title">Instagram</div>
+                    <div class="link-description">Conteúdo visual diário, rituais e ensinamentos sagrados</div>
+                    <span class="card-arrow">→</span>
+                </a>
+                <a href="https://www.youtube.com/@almasdepombagira" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="link-icon">▶️</span>
+                    <div class="link-title">YouTube</div>
+                    <div class="link-description">Vídeos completos, pontos cantados e ensinamentos profundos</div>
+                    <span class="card-arrow">→</span>
+                </a>
+                <a href="https://www.tiktok.com/@espelhosdepombagira?lang=pt-BR" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="link-icon">🎬</span>
+                    <div class="link-title">TikTok - Espelhos</div>
+                    <div class="link-description">Vídeos místicos sobre os espelhos das Pombagiras</div>
+                    <span class="card-arrow">→</span>
+                </a>
+                <a href="https://www.tiktok.com/@almasdepombagira?lang=pt-BR" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="link-icon">🎥</span>
+                    <div class="link-title">TikTok - Almas</div>
+                    <div class="link-description">Conhecimento rápido e transformador em vídeo</div>
+                    <span class="card-arrow">→</span>
+                </a>
+                <a href="https://www.tiktok.com/@alexiarosadefogo?lang=pt-BR" class="link-card">
+                    <div class="card-fire-effect"></div>
+                    <span class="link-icon">🔥</span>
+                    <div class="link-title">TikTok - Rosa de Fogo</div>
+                    <div class="link-description">Conteúdo pessoal e intenso sobre o caminho sagrado</div>
+                    <span class="card-arrow">→</span>
+                </a>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <span class="footer-logo">🌹🔥🌹</span>
+                <p class="footer-text">Almas de Pombagira</p>
+                <p class="footer-subtitle">Onde o Fogo Eterno Encontra a Rosa Sagrada</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Criar faíscas/brasas flutuantes
+        function createEmbers() {
+            const emberCount = 50;
+            for (let i = 0; i < emberCount; i++) {
+                const ember = document.createElement('div');
+                ember.className = 'ember';
+                ember.style.left = Math.random() * 100 + '%';
+                ember.style.animationDelay = Math.random() * 8 + 's';
+                ember.style.animationDuration = (6 + Math.random() * 6) + 's';
+                ember.style.width = (2 + Math.random() * 4) + 'px';
+                ember.style.height = ember.style.width;
+                document.body.appendChild(ember);
+            }
+        }
+
+        // Efeito de brilho nos cards ao mover mouse
+        document.querySelectorAll('.link-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Adicionar efeito de luz seguindo o mouse nos cards
+        const cardGlowStyle = document.createElement('style');
+        cardGlowStyle.textContent = `
+            .link-card::before {
+                background: 
+                    radial-gradient(
+                        600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                        rgba(255, 215, 0, 0.15),
+                        transparent 40%
+                    ),
+                    linear-gradient(135deg, rgba(255, 0, 68, 0.5), rgba(255, 215, 0, 0.3), rgba(139, 0, 0, 0.5));
+            }
+        `;
+        document.head.appendChild(cardGlowStyle);
+
+        // Contador de visitantes visual (efeito)
+        function pulseOnScroll() {
+            const cards = document.querySelectorAll('.link-card');
+            
+            cards.forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                
+                if (isVisible) {
+                    card.style.animationPlayState = 'running';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', pulseOnScroll);
+
+        // Inicializar
+        createEmbers();
+
+        // Recriar faíscas periodicamente
+        setInterval(() => {
+            const embers = document.querySelectorAll('.ember');
+            if (embers.length < 30) {
+                for (let i = 0; i < 5; i++) {
+                    const ember = document.createElement('div');
+                    ember.className = 'ember';
+                    ember.style.left = Math.random() * 100 + '%';
+                    ember.style.animationDelay = '0s';
+                    ember.style.animationDuration = (6 + Math.random() * 6) + 's';
+                    ember.style.width = (2 + Math.random() * 4) + 'px';
+                    ember.style.height = ember.style.width;
+                    document.body.appendChild(ember);
+                }
+            }
+        }, 3000);
+
+        // Remover faíscas antigas para performance
+        setInterval(() => {
+            const embers = document.querySelectorAll('.ember');
+            if (embers.length > 60) {
+                for (let i = 0; i < 10; i++) {
+                    embers[i]?.remove();
+                }
+            }
+        }, 5000);
+
+        console.log('%c🔥 Almas de Pombagira 🌹', 'color: #ff0040; font-size: 24px; font-weight: bold; text-shadow: 0 0 10px #ff0040;');
+        console.log('%cOnde o Fogo Encontra a Rosa', 'color: #ffd700; font-size: 14px;');
+    </script>
+</body>
+</html>
